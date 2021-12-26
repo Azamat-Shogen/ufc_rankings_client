@@ -1,3 +1,4 @@
+import axios from "axios";
 
 export const createRows = (arr, num) => {
     let outerList = []
@@ -8,4 +9,15 @@ export const createRows = (arr, num) => {
     }
 
     return outerList
+}
+
+export const fetchWeightClassesData = async () => {
+    try{
+        const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+            .then(res => res.data)
+        return data
+    }catch (err){
+        console.log(err)
+        return []
+    }
 }
