@@ -1,72 +1,58 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import data from "bootstrap/js/src/dom/data";
-import {Col, Container, Row} from "reactstrap";
-import {createRows} from '../../utils'
+import {Card, CardGroup, Col, Container, Row} from "reactstrap";
+import {createRows, fetchWeightClassesData} from '../../utils'
 import WeightClassColumn from "./WeightclassColumn";
 
 
 const Home = () => {
-    const [weightClasses, setWeightClasses] = useState(["a", "b", "c", "d", "e", "f", "g", "h", "j", "i", "k"])
-    const [athletes, setAthletes] = useState(["cj", "aj", "dj", "jj"])
-    const [users, setUsers] = useState(null)
+    const [weightClasses, setWeightClasses] = useState([])
     const [rows, setRows] = useState([])
+    const [rowLength, setRowLength] = useState(0)
+    const [loading, setLoading] = useState(true)
 
 
-    const rowsLength = Math.ceil(weightClasses.length / 4)
-
-
-    //setRows(createRows(weightClasses, rowsLength))
 
 
     useEffect(() => {
-        setRows(createRows(weightClasses, rowsLength))
-    }, [])
+        const d = fetchWeightClassesData()
+        d.then(el => {
+            setLoading(false)
+            setWeightClasses(el)
+        })
 
-    console.log('rows: ', rows)
+       return () => {
+          console.log('Cleanup')
+       }
 
-    // useEffect(() => {
-    //    const fetchData = async () => {
-    //       await axios.get(process.env.REACT_APP_API_WEICHTCLASSES)
-    //           .then(response => response.data)
-    //            .then(data => {
-    //                console.log(data)
-    //                setWeightClasses(data)
-    //            })
-    //            .catch(err => console.log(err))
-    //    }
-    //
-    //    fetchData()
-    //
-    //    return () => {
-    //       console.log('Cleanup')
-    //    }
-    //
-    // }, [])
-
-    const d = process.env.REACT_APP_API_WEIGHTCLASSES
-    console.log(process.env.REACT_APP_API_WEIGHTCLASSES)
-    // useEffect(() => {
-    //     fetch(process.env.REACT_APP_API_WEIGHTCLASSES)
-    //     // fetch("http://127.0.0.1:8000/api/weightclasses")
-    //         .then(response => response.json())
-    //         .then(data => console.log(data))
-    //         .catch(err => console.log(err))
-    //
-    //     return () => {
-    //         console.log('Cleanup')
-    //     }
-    //
-    // }, [])
+    }, [loading])
 
 
+    useEffect(() => {
+        if(weightClasses.length > 0){
+            setRows(createRows(weightClasses, Math.ceil(weightClasses.length / 4)))
+            console.log('workded ', weightClasses.length)
+        }
+    }, [weightClasses])
+
+
+
+
+    // return(
+    //     <Container>
+    //            <CardGroup>
+    //                {weightClasses.map(el => {
+    //                    return <WeightClassColumn lg="4" md="4" sm="2" xs="1" weightClass={el} />
+    //                })}
+    //            </CardGroup>
+    //
+    //     </Container>
+    // )
 
     return(
         <Container
-            // className="bg-light border mt-5"
-            className="bg-white border mt-5 mb-5"
-
-        >
+            className="bg-white border mt-5 mb-5">
             {
                 rows.map((r, i) => <Row md="4" sm="2" xs="1" className="mt-4">
                     {
@@ -74,7 +60,6 @@ const Home = () => {
                     }
                 </Row>)
             }
-
         </Container>
     )
 }
