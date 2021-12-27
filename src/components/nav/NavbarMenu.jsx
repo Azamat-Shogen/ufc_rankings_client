@@ -1,16 +1,11 @@
 import React from 'react'
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import ufc_logo from '../../images/ufc_logo2.png';
 import {
-    Collapse,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle,
     Navbar,
     NavbarBrand, NavbarText,
     NavbarToggler,
     NavItem,
     NavLink,
-    UncontrolledDropdown
 } from "reactstrap";
 
 
@@ -25,9 +20,13 @@ const NavbarMenu = () => {
              dark
              expand="md"
          >
-             <NavbarBrand href="/">
-                 UFC RANKINGS
+             <NavbarBrand className="m-2" href="/">
+                 <img src={ufc_logo} style={{height: "40px", width: "70px", margin: "auto"}} alt=""/>
              </NavbarBrand>
+
+             <NavbarText>
+               UFC RANKINGS
+             </NavbarText>
 
          </Navbar>
         </div>

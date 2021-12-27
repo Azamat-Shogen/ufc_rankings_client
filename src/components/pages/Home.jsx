@@ -9,7 +9,6 @@ import WeightClassColumn from "./WeightclassColumn";
 const Home = () => {
     const [weightClasses, setWeightClasses] = useState([])
     const [rows, setRows] = useState([])
-    const [rowLength, setRowLength] = useState(0)
     const [loading, setLoading] = useState(true)
 
 
@@ -32,35 +31,24 @@ const Home = () => {
     useEffect(() => {
         if(weightClasses.length > 0){
             setRows(createRows(weightClasses, Math.ceil(weightClasses.length / 4)))
-            console.log('workded ', weightClasses.length)
         }
     }, [weightClasses])
 
 
 
-
-    // return(
-    //     <Container>
-    //            <CardGroup>
-    //                {weightClasses.map(el => {
-    //                    return <WeightClassColumn lg="4" md="4" sm="2" xs="1" weightClass={el} />
-    //                })}
-    //            </CardGroup>
-    //
-    //     </Container>
-    // )
-
     return(
+
         <Container
             className="bg-white border mt-5 mb-5">
             {
-                rows.map((r, i) => <Row md="4" sm="2" xs="1" className="mt-4">
+                rows.map((r, i) => <Row md="4" sm="2" xs="1" className="mt-4" key={i}>
                     {
-                        r.map((w, wIdx) => <WeightClassColumn weightClass={w} />)
+                        r.map((w) => <WeightClassColumn weightClass={w} key={w.id} />)
                     }
                 </Row>)
             }
         </Container>
+
     )
 }
 
