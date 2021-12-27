@@ -14,18 +14,36 @@ const Home = () => {
 
 
 
-    useEffect(() => {
-        const d = fetchWeightClassesData()
-        d.then(el => {
-            setLoading(false)
-            setWeightClasses(el)
-        })
+    // useEffect(() => {
+    //     const d = fetchWeightClassesData()
+    //     d.then(el => {
+    //         setLoading(false)
+    //         setWeightClasses(el)
+    //     })
+    //
+    //    return () => {
+    //       console.log('Cleanup')
+    //    }
+    //
+    // }, [loading])
 
-       return () => {
-          console.log('Cleanup')
+
+    useEffect(() => {
+       const fetchWeightClasses = async () => {
+           await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+               .then(res => {
+                   console.log('res is: ', res)
+                   setLoading(false);
+                   setWeightClasses(res.data);
+               })
+               .catch(err => console.log('error is: ', err))
        }
 
+       fetchWeightClasses()
+
     }, [loading])
+
+
 
 
     useEffect(() => {
