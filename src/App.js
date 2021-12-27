@@ -7,6 +7,7 @@ function App() {
   return (
       <div className="App">
         <NavbarMenu />
+        <h1>ATHLETE RANKINGS</h1>
         <Home />
       </div>
   );
