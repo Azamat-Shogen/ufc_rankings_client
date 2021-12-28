@@ -13,7 +13,10 @@ export const createRows = (arr, num) => {
 
 export const fetchWeightClassesData = async () => {
     try{
-        const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+        // TODO: for deployment use
+         const data = await axios.get(process.env.REACT_APP_FEED_WEIGHTCLASSES)
+        // TODO: for local use
+       // const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
             .then(res => res.data)
         return data
     }catch (err){
@@ -24,7 +27,10 @@ export const fetchWeightClassesData = async () => {
 
 export const fetchAthletesData = async () => {
     try{
-        const data = await axios.get(process.env.REACT_APP_API_ATHLETES)
+        // TODO: for deployment use
+        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES)
+        // TODO: for local use
+        // const data = await axios.get(process.env.REACT_APP_API_ATHLETES)
             .then(res => res.data)
         return data
     }catch (err){
