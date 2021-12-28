@@ -29,6 +29,7 @@ const Home = () => {
 
     const baseUrl1 = "/feed/weightclasses"
 
+
     useEffect(() => {
        const fetchWeightClasses = async () => {
            //await axios.get(`http://ec2-3-18-183-239.us-east-2.compute.amazonaws.com:8000/api/weightclasses`)
