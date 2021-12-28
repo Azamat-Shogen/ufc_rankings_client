@@ -30,7 +30,7 @@ const Home = () => {
 
     useEffect(() => {
        const fetchWeightClasses = async () => {
-           await axios.get(`/api/weightclasses`)
+           await axios.get(`http://ec2-3-18-183-239.us-east-2.compute.amazonaws.com:8000/api/weightclasses`)
                .then(res => {
                    console.log('res is: ', res)
                    setLoading(false);
