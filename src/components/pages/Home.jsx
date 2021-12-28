@@ -30,11 +30,11 @@ const Home = () => {
 
     useEffect(() => {
        const fetchWeightClasses = async () => {
-           await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+           await axios.get(`/api/weightclasses`)
                .then(res => {
                    console.log('res is: ', res)
                    setLoading(false);
-                   setWeightClasses(res.data);
+                   setWeightClasses(res.data)
                })
                .catch(err => console.log('error is: ', err))
        }
