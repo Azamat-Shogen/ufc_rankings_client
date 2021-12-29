@@ -1,68 +1,30 @@
-import React, {Component} from 'react'
-import { fetchAthletesData } from '../../utils'
+
+import React, {useState} from 'react'
 import AthleteCard from "./AthleteCard";
 
 
 
-class WeightClassColumn extends Component{
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
+const WeightClassColumn = ({data}) => {
 
-        this.state = {
-            collapse: 0,
-            cards: [],
-            athletes: [],
-            weightClassAthletes: []
-        }
-    }
+   const [collapse, setCollapse] = useState(0)
 
-    componentDidMount() {
-        this.handleInitSetup()
-    }
+   const toggle = (e) => {
+       const event = e.target.dataset.event;
+    setCollapse(collapse === Number(event) ? 0: Number(event))
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-       if(prevState.weightClassAthletes !== this.state.weightClassAthletes){
-           this.setState({...this.state,
-               cards: [].concat(this.state.weightClassAthletes.map((el, i) => i + 1))
-           })
-       }
-     }
+   }
+    
 
 
-     handleInitSetup(){
-         const d = fetchAthletesData();
-         d.then(data => {
-             this.setState(
-                 {...this.state,
-                     athletes: data,
-                     weightClassAthletes: data.filter(el => el.weight_class === this.props.weightClass.id)
-                 })})
-     }
-
-
-    toggle(e) {
-        let event = e.target.dataset.event;
-        this.setState({ collapse: this.state.collapse === Number(event) ? 0 : Number(event) });
-    }
-
-    render() {
-        const {collapse, weightClassAthletes} = this.state;
-        return (
-           <div className="container" >
-                <h6 style={{color: "#d20a0a", letterSpacing: ".2px"}} className="page-header mt-3 mb-4">{this.props.weightClass.weight_class}</h6>
-                    <div>
-
-                    {
-                        weightClassAthletes.map(el => <AthleteCard athlete={el} key={el.id} collapse={collapse} toggle={this.toggle}/>)
-                    }
-                    </div>
+    return (
+        <div className="container" >
+                <h6 style={{color: "#d20a0a", letterSpacing: ".2px"}} className="page-header mt-3 mb-4">{data.weight_class}</h6>
+                {
+                  data.athletes.map(el => <AthleteCard key={el.id} toggle={toggle} collapse={collapse} athlete={el}/>)
+                }
             </div>
-        );
-    }
-
+    )
 }
 
-
-
 export default WeightClassColumn
+

@@ -1,40 +1,18 @@
-import axios from "axios";
 
-export const createRows = (arr, num) => {
+export const createRows = (weight_classes, num, athltes_data) => {
     let outerList = []
     let current = 0
     for (let i = 0; i < num; i++){
-        outerList.push(arr.slice(current, current+4))
+        outerList.push(weight_classes.slice(current, current+4))
         current += 4
     }
-
-    return outerList
+   
+    const result = outerList.map((innerList) => innerList.map((el => {
+        const athletes = athltes_data.filter(fighter => fighter.weight_class === el.id)
+        return {...el, athletes}
+    })))
+    
+    return result
 }
 
-export const fetchWeightClassesData = async () => {
-    try{
-        // TODO: for deployment use
-         const data = await axios.get(process.env.REACT_APP_FEED_WEIGHTCLASSES)
-        // TODO: for local use
-       // const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
-            .then(res => res.data)
-        return data
-    }catch (err){
-        console.log(err)
-        return []
-    }
-}
 
-export const fetchAthletesData = async () => {
-    try{
-        // TODO: for deployment use
-        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES)
-        // TODO: for local use
-        // const data = await axios.get(process.env.REACT_APP_API_ATHLETES)
-            .then(res => res.data)
-        return data
-    }catch (err){
-        console.log(err)
-        return []
-    }
-}
