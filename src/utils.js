@@ -14,6 +14,20 @@ export const athletesNamesMod = (arr) => {
     return newList
 }
 
+export const maxAthleteName = (arr) => {
+    const names = arr.map(el => el.athlete_name)
+    const maxNameLength = Math.max(...names.map(el => el.length))
+    return maxNameLength
+}
+
+export const fillNamesSpaces = (num) => {
+  let arr = []
+  for(let i = 0; i < num; i++){
+      arr.push(1)
+  }
+  return arr
+}
+
 export const createRows = (weight_classes, num, athltes_data) => {
     let outerList = []
     let current = 0

@@ -7,12 +7,32 @@
 }
 
 .header{
+ display: flex;
+  /* align-items: stretch; */
+  justify-content: space-between;
     font-size: 14px;
-    text-align-last: center;
+}
+
+.rank{
+    font-weight: bold;
+    width: 10%;
 }
 
 .header:hover {
     background-color: #ddedf7!important;
     cursor: pointer;
    
+}
+.athlete_name_wrapper {
+    width: 80%;
+    display: flexbox;
+    justify-content: space-between;
+}
+.athlete_name{
+   float: left;
+   margin-left: 10px;
+}
+
+.symbol{
+    width: 10%;
 }
