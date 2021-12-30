@@ -1,7 +1,5 @@
-
 import React, {useState} from 'react'
 import AthleteCard from "../athlete_collapse/AthleteCard";
-import { athletesNamesMod, maxAthleteName } from '../../../utils';
 
 
 
@@ -16,7 +14,7 @@ const WeightClassColumn = ({data}) => {
    }
     
     return (
-        <div className="container" >
+        <div className="container mb-4" >
             <h6 style={{color: "#d20a0a", letterSpacing: ".2px"}} className="page-header mt-3 mb-4">{data.weight_class}</h6>
             { data.athletes.map(el => <AthleteCard key={el.id} 
                                       toggle={toggle} collapse={collapse} 
