@@ -14,5 +14,3 @@ export const createRows = (weight_classes, num, athltes_data) => {
     
     return result
 }
-
-

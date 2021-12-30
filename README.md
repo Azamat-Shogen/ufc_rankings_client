@@ -1,7 +1,7 @@
 # UFC rankings client
 
-This project is built using React
-(UFC rankings clone, that connects to a remote server built in Django)
+### This project is built using React
+##### (UFC rankings clone, that connects to a remote server built in Django)
 UFC rankings server:  https://github.com/Azamat-Shogen/django_ufc_rankings
 
 

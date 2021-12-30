@@ -1,0 +1,42 @@
+.athlete_card{
+    border: none;
+    margin-bottom: '0.1rem';
+    display: flex;
+  justify-content: space-between;
+    
+}
+
+.header{
+ display: flex;
+  justify-content: space-between;
+    font-size: 14px;
+}
+
+.rank{
+    font-weight: bold;
+    width: 10%;
+}
+
+.header:hover {
+    background-color: #ddedf7!important;
+    cursor: pointer;
+   
+}
+.athlete_name_wrapper {
+    width: 80%;
+    display: flexbox;
+    justify-content: space-between;
+}
+.athlete_name{
+   float: left;
+   margin-left: 10px;
+}
+
+.symbol{
+    width: 10%;
+}
+.fa:hover{
+    background-color: white
+  
+   
+}
