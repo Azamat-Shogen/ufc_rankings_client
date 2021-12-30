@@ -1,6 +1,7 @@
 
 import React, {useState} from 'react'
-import AthleteCard from "./AthleteCard";
+import AthleteCard from "../athlete_collapse/AthleteCard";
+import { athletesNamesMod } from '../../../utils';
 
 
 
@@ -14,6 +15,9 @@ const WeightClassColumn = ({data}) => {
 
    }
     
+   const athltes_data = athletesNamesMod(data.athletes)
+
+   console.log(athltes_data)
 
 
     return (

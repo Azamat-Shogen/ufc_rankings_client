@@ -1,18 +1,25 @@
-import React from 'react';
-import {Card, CardBody, CardHeader, Collapse} from "reactstrap";
+import React, {useState} from 'react';
+import {Card, CardBody, CardHeader, Collapse, CardTitle} from "reactstrap";
+import "./athlete_card.css";
 
 
 const AthleteCard = ({athlete, toggle, collapse}) => {
+   
 
+    
 
     return(
         <div>
-            <Card className="" style={{ border: 'none', marginBottom: '0.1rem' }} >
+            <Card className="athlete_card">
                 {
-                    athlete.rank === 0 ? <CardHeader className="bg-white p-1" onClick={toggle}
-                                                     data-event={athlete.id}>{athlete.athlete_name} {collapse === athlete.id ? '➖' : '➕'}</CardHeader> :
-                        <CardHeader className="bg-white p-1" onClick={toggle}
-                                    data-event={athlete.id}>{`${athlete.rank}.  ${athlete.athlete_name}`} </CardHeader>
+                    athlete.rank === 0 ? <CardHeader className="bg-white p-1 header" onClick={toggle} data-event={athlete.id}>
+                    {athlete.athlete_name} {collapse === athlete.id ? '➖' : '➕'}
+                    </CardHeader> :
+                    
+                        <CardHeader className="bg-white p-1 header" onClick={toggle} data-event={athlete.id}>
+                          
+                                   {`${athlete.rank} ${athlete.athlete_name}`} 
+                        </CardHeader>
                 }
 
                 {
@@ -36,3 +43,4 @@ const AthleteCard = ({athlete, toggle, collapse}) => {
 }
 
 export default AthleteCard;
+

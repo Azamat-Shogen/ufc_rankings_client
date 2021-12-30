@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Spinner} from "reactstrap";
-import {createRows} from '../../utils'
-import { fetchAthletesData, fetchWeightClassesData } from '../../api/requests';
-import WeightClassColumn from "./WeightclassColumn";
+import {createRows} from '../../../utils'
+import { fetchAthletesData, fetchWeightClassesData } from '../../../api/requests';
+import WeightClassColumn from "../weight_class_athletes/WeightclassColumn";
 
 
 const Home = () => {
