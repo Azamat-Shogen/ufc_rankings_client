@@ -19,7 +19,7 @@ export const fetchAthletesData = async () => {
         // TODO: for deployment use
         const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES)
         // TODO: for local use
-        // const data = await axios.get(process.env.REACT_APP_API_ATHLETES)
+        //const data = await axios.get(process.env.REACT_APP_API_ATHLETES)
             .then(res => res.data)
         return data
     }catch (err){
