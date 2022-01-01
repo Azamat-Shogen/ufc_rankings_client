@@ -50,7 +50,9 @@ const AthleteCard = ({athlete, toggle, collapse }) => {
 
                         <Collapse className="bg-white" isOpen={collapse === athlete.id}>
                             <CardBody>
-                                <img src={athlete.image_src} style={{width: "208px", height: "130px"}} alt=""/>
+                                {/* <img src={athlete.image_src} style={{width: "208px", height: "130px"}} alt=""/> */}
+                                <img src={athlete.image_src} style={{width: "178px", height: "120px"}} alt=""/>
+
                             </CardBody>
                         </Collapse>
                 }
