@@ -39,6 +39,7 @@ const Home = () => {
 
     const renderRows = () => (
         <>
+            <h1>ATHLETE RANKINGS</h1>
         {
             rows.map((row, i) => <Row md="4" sm="2" xs="1" className="mt-4" key={i}>
                 {
