@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import AthleteCard from "../athlete_collapse/AthleteCard";
+import AthleteCard from "../rankings_athlete_collapse/AthleteCard";
 
 
 
