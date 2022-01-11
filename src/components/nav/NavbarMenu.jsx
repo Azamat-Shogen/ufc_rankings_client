@@ -1,14 +1,15 @@
 import React from 'react'
 import ufc_logo from '../../images/ufc_logo2.png';
-import {
-    Navbar,
-    NavbarBrand, NavbarText,
-    NavbarToggler,
-    NavItem,
-    NavLink,
-    Collapse,
-    Nav
-} from "reactstrap";
+import { NavLink } from 'react-router-dom'
+// import {
+//     Navbar,
+//     NavbarBrand, NavbarText,
+//     NavbarToggler,
+//     NavItem,
+//     NavLink,
+//     Collapse,
+//     Nav
+// } from "reactstrap";
 
 
 
@@ -23,13 +24,13 @@ const NavbarMenu = () => {
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav container justify-content-around">
                     <li className="nav-item">
-                        <a className="nav-link" href="home">Home</a>
+                        <NavLink className="nav-link" to="/home">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Rankings</a>
+                        <NavLink className="nav-link" to="/rankings">Rankings</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Athletes</a>
+                        <NavLink className="nav-link" to="/athletes/1">Athletes</NavLink>
                     </li>
                 </ul>
 
@@ -41,7 +42,7 @@ const NavbarMenu = () => {
                 <img src={ufc_logo} style={{height: "40px", width: "70px", margin: "auto"}} alt=""/>
 
             </div>
-            <div className="col-lg-4"><a className="nav-link" style={{float: "right"}} href="#">AZ</a></div>
+            <div className="col-lg-4"><NavLink className="nav-link" style={{float: "right"}} to="#">AZ</NavLink></div>
 
         </nav>
     )
