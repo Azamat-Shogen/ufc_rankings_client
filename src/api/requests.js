@@ -5,7 +5,7 @@ export const fetchWeightClassesData = async () => {
         // TODO: for deployment use
         const data = await axios.get(process.env.REACT_APP_FEED_WEIGHTCLASSES)
             // TODO: for local use
-            //const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+           // const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
             .then(res => res.data)
         return data
     }catch (err){
@@ -19,7 +19,7 @@ export const fetchRankingsAthletesData = async () => {
         // TODO: for deployment use
         const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES_RANKINGS)
             // TODO: for local use
-            //const data = await axios.get(process.env.REACT_APP_API_ATHLETES_RANKINGS)
+            // const data = await axios.get(process.env.REACT_APP_API_ATHLETES_RANKINGS)
             .then(res => res.data)
         return data
     }catch (err){
@@ -33,7 +33,7 @@ export const fetchAthletesData = async (page) => {
         // TODO: for deployment use
         const data = await axios.get(`${process.env.REACT_APP_FEED_ATHLETES_ALL}/${page}`)
             // TODO: for local use
-            //const data = await axios.get(`${process.env.REACT_APP_FIGHTERS_ALL}/${page}`)
+           // const data = await axios.get(`${process.env.REACT_APP_FIGHTERS_ALL}/${page}`)
             .then(res => res.data)
         return data
 
