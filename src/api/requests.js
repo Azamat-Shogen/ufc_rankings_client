@@ -31,7 +31,7 @@ export const fetchRankingsAthletesData = async () => {
 export const fetchAthletesData = async (page) => {
     try{
         // TODO: for deployment use
-        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES_ALL)
+        const data = await axios.get(`${process.env.REACT_APP_FEED_ATHLETES_ALL}/${page}`)
             // TODO: for local use
             //const data = await axios.get(`${process.env.REACT_APP_FIGHTERS_ALL}/${page}`)
             .then(res => res.data)
