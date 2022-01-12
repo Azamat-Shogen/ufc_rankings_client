@@ -24,7 +24,7 @@ const NavbarMenu = () => {
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav container justify-content-around">
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/home">Home</NavLink>
+                        <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/rankings">Rankings</NavLink>
