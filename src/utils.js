@@ -14,3 +14,14 @@ export const createRows = (weight_classes, num, athltes_data) => {
     
     return result
 }
+
+export const createRows2 = (arr) => {
+    let rows = []
+    let current = 0;
+    let num = Math.ceil(arr.length / 4)
+    for(let i = 0; i < num; i++){
+        rows.push(arr.slice(current, current+4))
+        current += 4;
+    }
+    return rows
+}

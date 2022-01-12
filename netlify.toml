@@ -1,5 +1,7 @@
 [[redirects]]
 from = "/feed/*"
-to = "http://ec2-3-18-183-239.us-east-2.compute.amazonaws.com:8000/api/:splat"
+to = "http://ec2-18-225-28-103.us-east-2.compute.amazonaws.com:8000/api/:splat"
+from = "/*"
+to = "/index.html"
 status = 200
 force = true

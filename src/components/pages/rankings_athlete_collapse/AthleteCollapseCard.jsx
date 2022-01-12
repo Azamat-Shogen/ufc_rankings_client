@@ -4,7 +4,7 @@ import "./athlete_card.css";
 
 
 
-const AthleteCard = ({athlete, toggle, collapse }) => {
+const AthleteCollapseCard = ({athlete, toggle, collapse }) => {
      
     
     return(
@@ -50,7 +50,9 @@ const AthleteCard = ({athlete, toggle, collapse }) => {
 
                         <Collapse className="bg-white" isOpen={collapse === athlete.id}>
                             <CardBody>
-                                <img src={athlete.image_src} style={{width: "208px", height: "130px"}} alt=""/>
+                                {/* <img src={athlete.image_src} style={{width: "208px", height: "130px"}} alt=""/> */}
+                                <img className="img_athlete" src={athlete.image_src} alt=""/>
+
                             </CardBody>
                         </Collapse>
                 }
@@ -60,11 +62,11 @@ const AthleteCard = ({athlete, toggle, collapse }) => {
     )
 }
 
-export default AthleteCard;
+export default AthleteCollapseCard;
 
 
 
-// const AthleteCard = ({athlete, toggle, collapse}) => {
+// const AthleteCollapseCard = ({athlete, toggle, collapse}) => {
     
 
 //     return(
@@ -101,5 +103,5 @@ export default AthleteCard;
 //     )
 // }
 
-// export default AthleteCard;
+// export default AthleteCollapseCard;
 
