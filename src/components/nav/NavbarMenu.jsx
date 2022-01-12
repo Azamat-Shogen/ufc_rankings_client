@@ -50,30 +50,3 @@ const NavbarMenu = () => {
 
 export default NavbarMenu
 
-
-// <Navbar color="dark" dark expand="md">
-{/*<NavbarBrand className="m-2" href="/">*/}
-{/*    <img src={ufc_logo} style={{height: "40px", width: "70px", margin: "auto"}} alt=""/>*/}
-{/*</NavbarBrand>*/}
-
-{/*<NavbarText>*/}
-{/*  UFC RANKINGS*/}
-{/*</NavbarText>*/}
-// </Navbar>
-
-// <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-//     <ul className="navbar-nav">
-//         <li className="nav-item">
-//             <a className="nav-link" href="/">Home</a>
-//         </li>
-//         <li className="nav-item">
-//             <a className="nav-link" href="/about">About</a>
-//         </li>
-//         <li className="nav-item">
-//             <a className="nav-link" href="/user">Users</a>
-//         </li>
-//
-//     </ul>
-//
-//     <img src={ufc_logo} style={{height: "40px", width: "70px", margin: "auto"}} alt=""/>
-// </nav>
