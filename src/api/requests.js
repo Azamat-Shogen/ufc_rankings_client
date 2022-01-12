@@ -4,8 +4,8 @@ export const fetchWeightClassesData = async () => {
     try{
         // TODO: for deployment use
         const data = await axios.get(process.env.REACT_APP_FEED_WEIGHTCLASSES)
-        // TODO: for local use
-        //const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+            // TODO: for local use
+            //const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
             .then(res => res.data)
         return data
     }catch (err){
@@ -14,15 +14,30 @@ export const fetchWeightClassesData = async () => {
     }
 }
 
-export const fetchAthletesData = async () => {
+export const fetchRankingsAthletesData = async () => {
     try{
         // TODO: for deployment use
-        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES_ALL)
-        // TODO: for local use
-        // const data = await axios.get(process.env.REACT_APP_API_ATHLETES_ALL)
+        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES_RANKINGS)
+            // TODO: for local use
+            //const data = await axios.get(process.env.REACT_APP_API_ATHLETES_RANKINGS)
             .then(res => res.data)
         return data
     }catch (err){
+        console.log(err)
+        return []
+    }
+}
+
+export const fetchAthletesData = async (page) => {
+    try{
+        // TODO: for deployment use
+        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES_ALL)
+            // TODO: for local use
+            //const data = await axios.get(`${process.env.REACT_APP_FIGHTERS_ALL}/${page}`)
+            .then(res => res.data)
+        return data
+
+    } catch (err){
         console.log(err)
         return []
     }
