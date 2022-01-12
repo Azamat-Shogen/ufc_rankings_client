@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {fetchAthletesData} from "../../../api/requests";
-import {Container, Row, Col, Spinner} from 'reactstrap';
-import {createRows} from "../../../utils";
+import {Container, Row, Col, Spinner, PaginationItem, PaginationLink, Pagination} from 'reactstrap';
+import {createRows2} from "../../../utils";
+import AthleteCard from "./AthleteCard";
+import withRouter from "../../../withRouter";
 
 
 
 const Athletes = () => {
-    const [athletes, setAthletes] = useState([]);
+
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [rows, setRows] = useState([])
@@ -14,21 +16,26 @@ const Athletes = () => {
     useEffect( () => {
        const data = fetchAthletesData(page)
         data.then( el => {
-            setLoading(false)
-            setAthletes(el);
-
+            setLoading(false);
+            setRows(createRows2(el))
         })
         return () => {
            console.log("unmount athletes")
         }
     }, [])
 
-    console.log(athletes)
 
 
     const renderRows = () => (
         <>
             <h1>ATHLETES</h1>
+            {
+                rows.map((row, i) => <Row md="4" sm="2" xs="1" className="mt-4 mb-4" key={i}>
+                    {
+                        row.map( el => <AthleteCard key={el.id} athlete={el} />)
+                    }
+                </Row>)
+            }
         </>
     )
 
@@ -41,8 +48,51 @@ const Athletes = () => {
                 </Spinner> : renderRows()
 
             }
+            <div className="d-flex flex-row-reverse" >
+            <Pagination aria-label="Page">
+                <PaginationItem disabled>
+                    <PaginationLink
+                        first
+                        href="#"
+                    />
+                </PaginationItem>
+                <PaginationItem disabled>
+                    <PaginationLink
+                        href="#"
+                        previous
+                    />
+                </PaginationItem>
+                <PaginationItem active>
+                    <PaginationLink href="#">
+                        1
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink href="#">
+                        2
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink href="#">
+                        3
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink
+                        href="#"
+                        next
+                    />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink
+                        href="#"
+                        last
+                    />
+                </PaginationItem>
+            </Pagination>
+            </div>
         </Container>
     )
 }
 
-export default Athletes
+export default withRouter(Athletes)

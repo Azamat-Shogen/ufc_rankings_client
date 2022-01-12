@@ -1,0 +1,11 @@
+/*.card_item {*/
+/*    max-width: 290px;*/
+/*    max-height: 247px;*/
+/*}*/
+
+.athlete_img {
+    /*max-width: 200px;*/
+    /*max-height: 150px;*/
+    max-width: 170px;
+    max-height: 130px;
+}

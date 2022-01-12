@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 import Rankings from "./components/pages/rankings/Rankings";
 import NavbarMenu from "./components/nav/NavbarMenu";
 import Athletes from "./components/pages/fighters/Athletes";
@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <NavbarMenu />
        <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/rankings" element={<Rankings />} />
         <Route path="/athletes/:pageId" element={<Athletes />} />
         {/*<Route path="/athletes/:athleteId" element={<Athletes />} />*/}

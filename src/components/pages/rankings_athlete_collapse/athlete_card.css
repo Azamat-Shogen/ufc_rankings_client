@@ -37,6 +37,9 @@
 }
 .fa:hover{
     background-color: white
-  
-   
+}
+
+.img_athlete {
+    max-width: 208px;
+    max-height: 130px;
 }
