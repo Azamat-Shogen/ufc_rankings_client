@@ -17,9 +17,9 @@ export const fetchWeightClassesData = async () => {
 export const fetchAthletesData = async () => {
     try{
         // TODO: for deployment use
-        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES)
+        const data = await axios.get(process.env.REACT_APP_FEED_ATHLETES_ALL)
         // TODO: for local use
-        // const data = await axios.get(process.env.REACT_APP_API_ATHLETES)
+        // const data = await axios.get(process.env.REACT_APP_API_ATHLETES_ALL)
             .then(res => res.data)
         return data
     }catch (err){
