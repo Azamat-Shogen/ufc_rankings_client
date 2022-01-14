@@ -1,20 +1,9 @@
 import React from 'react'
 import ufc_logo from '../../images/ufc_logo2.png';
 import { NavLink } from 'react-router-dom'
-// import {
-//     Navbar,
-//     NavbarBrand, NavbarText,
-//     NavbarToggler,
-//     NavItem,
-//     NavLink,
-//     Collapse,
-//     Nav
-// } from "reactstrap";
-
 
 
 const NavbarMenu = () => {
-
     return (
         <nav className="navbar navbar-expand-md bg-dark navbar-dark p-3">
             <div className="col-lg-4">
@@ -30,7 +19,7 @@ const NavbarMenu = () => {
                         <NavLink className="nav-link" to="/rankings">Rankings</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/athletes/1">Athletes</NavLink>
+                        <NavLink className="nav-link" to="/athletes">Athletes</NavLink>
                     </li>
                 </ul>
 

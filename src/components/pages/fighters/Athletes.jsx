@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import {fetchAthletesData} from "../../../api/requests";
 import {Container, Row, Col, Spinner, PaginationItem, PaginationLink, Pagination} from 'reactstrap';
 import {createRows2} from "../../../utils";
@@ -7,13 +8,18 @@ import withRouter from "../../../withRouter";
 
 
 
-const Athletes = () => {
+const Athletes = (props) => {
+
+    const path = props.router.location.pathname
 
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [rows, setRows] = useState([])
 
+    const navigate = useNavigate()
+
     useEffect( () => {
+        setLoading(true);
        const data = fetchAthletesData(page)
         data.then( el => {
             setLoading(false);
@@ -22,9 +28,16 @@ const Athletes = () => {
         return () => {
            console.log("unmount athletes")
         }
-    }, [])
+    }, [page])
 
 
+    const handleNextClick = () => {
+        setPage(state => state + 1)
+
+    }
+
+
+    console.log(props)
 
     const renderRows = () => (
         <>
@@ -79,12 +92,14 @@ const Athletes = () => {
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink
-                        href="#"
+                        // href="/"
+                        onClick={handleNextClick}
                         next
                     />
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink
+                    
                         href="#"
                         last
                     />
