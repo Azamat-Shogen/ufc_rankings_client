@@ -5,12 +5,16 @@ import {Container, Row, Col, Spinner, PaginationItem, PaginationLink, Pagination
 import {createRows2} from "../../../utils";
 import AthleteCard from "./AthleteCard";
 import withRouter from "../../../withRouter";
+import "./Athletes.css"
+import pageContainer from "../../../pageContainer";
 
 
 
 const Athletes = (props) => {
 
-    const path = props.router.location.pathname
+   // const path = props.router.location.pathname
+   
+    const pageNumbners = [1, 2, 3]
 
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
@@ -32,16 +36,24 @@ const Athletes = (props) => {
 
 
     const handleNextClick = () => {
-        setPage(state => state + 1)
+        // setPage(state => state + 1)
+        setPage(prev => prev + 1)
+    }
 
+    const handlePrevClick = () => {
+        setPage(prev => prev - 1)
+    }
+
+    const handleNumberClick = (num) => {
+        setPage(num)
     }
 
 
-    console.log(props)
 
     const renderRows = () => (
         <>
             <h1>ATHLETES</h1>
+            <div>
             {
                 rows.map((row, i) => <Row md="4" sm="2" xs="1" className="mt-4 mb-4" key={i}>
                     {
@@ -49,47 +61,66 @@ const Athletes = (props) => {
                     }
                 </Row>)
             }
+            </div>
         </>
     )
 
     return (
-        <Container
-            className="bg-white border mt-5 mb-5">
+        <React.Fragment>  
             {
-                loading ? <Spinner>
+                loading ? <div className="spinner"><Spinner>
                     Loading...
-                </Spinner> : renderRows()
+                </Spinner></div> : renderRows()
 
             }
             <div className="d-flex flex-row-reverse" >
-            <Pagination aria-label="Page">
+            <Pagination aria-label="Page" size="sm">
+            
                 <PaginationItem disabled>
                     <PaginationLink
                         first
                         href="#"
                     />
                 </PaginationItem>
-                <PaginationItem disabled>
+                <PaginationItem disabled={page === 1}>
                     <PaginationLink
-                        href="#"
+                        onClick={handlePrevClick}
                         previous
                     />
                 </PaginationItem>
-                <PaginationItem active>
-                    <PaginationLink href="#">
-                        1
+                <PaginationItem active={pageNumbners[0] === page}>
+                    <PaginationLink onClick={() => handleNumberClick(1)}>
+                        {pageNumbners[0]}
                     </PaginationLink>
                 </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink href="#">
-                        2
+
+                <PaginationItem active={pageNumbners[1] === page}>
+                    <PaginationLink onClick={() => handleNumberClick(2)} >
+                    {pageNumbners[1]}
                     </PaginationLink>
                 </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink href="#">
-                        3
+
+                <PaginationItem active={pageNumbners[2] === page}>
+                    <PaginationLink onClick={() => handleNumberClick(3)} >
+                    {pageNumbners[2]}
                     </PaginationLink>
                 </PaginationItem>
+
+                <PaginationItem disabled>
+                    <PaginationLink  >
+                    {"..."}
+                    </PaginationLink>
+                </PaginationItem>
+
+                {
+                    page > 3 && 
+                    <PaginationItem active >
+                    <PaginationLink  >
+                    {page}
+                    </PaginationLink>
+                </PaginationItem>
+                }
+                
                 <PaginationItem>
                     <PaginationLink
                         // href="/"
@@ -106,8 +137,8 @@ const Athletes = (props) => {
                 </PaginationItem>
             </Pagination>
             </div>
-        </Container>
+            </React.Fragment>
     )
 }
 
-export default withRouter(Athletes)
+export default withRouter(pageContainer(Athletes))
