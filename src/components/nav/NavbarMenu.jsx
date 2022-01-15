@@ -1,16 +1,7 @@
 import React from 'react'
 import ufc_logo from '../../images/ufc_logo2.png';
-import { NavLink } from 'react-router-dom'
-// import {
-//     Navbar,
-//     NavbarBrand, NavbarText,
-//     NavbarToggler,
-//     NavItem,
-//     NavLink,
-//     Collapse,
-//     Nav
-// } from "reactstrap";
-
+import {NavLink } from 'react-router-dom'
+import {  } from 'reactstrap';
 
 
 const NavbarMenu = () => {
@@ -30,7 +21,7 @@ const NavbarMenu = () => {
                         <NavLink className="nav-link" to="/rankings">Rankings</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/athletes/1">Athletes</NavLink>
+                        <NavLink className="nav-link" to={`/athletes`}>Athletes</NavLink>
                     </li>
                 </ul>
 
@@ -42,8 +33,11 @@ const NavbarMenu = () => {
                 <img src={ufc_logo} style={{height: "40px", width: "70px", margin: "auto"}} alt=""/>
 
             </div>
-            <div className="col-lg-4"><NavLink className="nav-link" style={{float: "right"}} to="#">AZ</NavLink></div>
-
+        
+            <div className="col-lg-4" >
+            <a href="https://www.linkedin.com/in/azamat-shogen-7630b1217/" style={{float: "right", marginRight: "10px"}}>
+            AZ
+            </a></div>
         </nav>
     )
 }

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Row, Spinner} from "reactstrap";
+import {Row, Spinner} from "reactstrap";
 import {createRows} from '../../../utils'
 import {fetchRankingsAthletesData, fetchWeightClassesData} from '../../../api/requests';
 import WeightClassColumn from "../weight_class_athletes/WeightclassColumn";
+import pageContainer from '../../../pageContainer';
 
 
 const Rankings = () => {
@@ -27,10 +28,8 @@ const Rankings = () => {
                setLoading2(false)
            })
        }
-
-
         return () => {
-            console.log('🐥')
+            console.log('unmount rankings')
         }
 
     }, [loading1])
@@ -53,16 +52,15 @@ const Rankings = () => {
 
     return(
 
-        <Container
-            className="bg-white border mt-5 mb-5">
+        <React.Fragment>
             {
                 loading2 ? <Spinner>
                     Loading...
                 </Spinner> : renderRows()
             }
-        </Container>
+            </React.Fragment>
 
     )
 }
 
-export default Rankings
+export default pageContainer(Rankings)

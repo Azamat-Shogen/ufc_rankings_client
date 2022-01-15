@@ -5,7 +5,7 @@ export const fetchWeightClassesData = async () => {
         // TODO: for deployment use
         const data = await axios.get(process.env.REACT_APP_FEED_WEIGHTCLASSES)
             // TODO: for local use
-            //const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
+           // const data = await axios.get(process.env.REACT_APP_API_WEIGHTCLASSES)
             // const data = await axios.get("http://ec2-18-225-28-103.us-east-2.compute.amazonaws.com:8000/api/weightclasses")
             .then(res => res.data)
         return data
