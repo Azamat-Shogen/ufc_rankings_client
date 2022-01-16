@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
 import {fetchAthletesData} from "../../../api/requests";
-import {Container, Row, Col, Spinner, PaginationItem, PaginationLink, Pagination} from 'reactstrap';
+import {Row, Spinner, PaginationItem, PaginationLink, Pagination} from 'reactstrap';
 import {createRows2} from "../../../utils";
 import AthleteCard from "./AthleteCard";
 import withRouter from "../../../withRouter";
@@ -13,14 +12,12 @@ import pageContainer from "../../../pageContainer";
 const Athletes = (props) => {
 
    // const path = props.router.location.pathname
-   
     const pageNumbners = [1, 2, 3]
 
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [rows, setRows] = useState([])
 
-    const navigate = useNavigate()
 
     useEffect( () => {
         setLoading(true);
@@ -36,7 +33,6 @@ const Athletes = (props) => {
 
 
     const handleNextClick = () => {
-        // setPage(state => state + 1)
         setPage(prev => prev + 1)
     }
 
@@ -53,6 +49,11 @@ const Athletes = (props) => {
     const renderRows = () => (
         <>
             <h1>ATHLETES</h1>
+           <div className="athletes-toggle">
+               <div className="data-to-load"><h5>ALL</h5></div>
+               <div className="data-to-load"><h5>MEN</h5></div>
+               <div className="data-to-load"><h5>WOMEN</h5></div>
+           </div>
             <div>
             {
                 rows.map((row, i) => <Row md="4" sm="2" xs="1" className="mt-4 mb-4" key={i}>
