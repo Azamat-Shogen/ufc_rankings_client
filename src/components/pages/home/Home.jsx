@@ -1,17 +1,20 @@
 import React from "react";
-import {Spinner} from "reactstrap";
-import pageContainer from "../../../pageContainer";
+// import {Spinner} from "reactstrap";
+// import pageContainer from "../../../pageContainer";
+import "./home.css"
 
 const Home = () => {
 
     return (
-        <React.Fragment>
-            <h1>Homepage</h1>
-            <h1>Work in progress... 🥱</h1>
-            <Spinner />
-        </React.Fragment>
+        <div className="crossfade">
+            <figure></figure>
+            <figure></figure>
+            <figure></figure>
+            <figure></figure>
+            <figure></figure>
+        </div>
+       
     )
 }
-
-export default pageContainer(Home)
+export default Home
 

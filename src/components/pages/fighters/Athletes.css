@@ -13,11 +13,12 @@ h1{
     margin-top: -20px;
 }
 
-h5:hover{
-    color: rgb(6, 157, 221);
+.fighters-selected{
+    color: rgb(82, 122, 209);
+    font-weight: bold;
 }
 
-h5 {
+.fighters-not-selected{
   color: #abadb1;
   font-weight: bold;
 }

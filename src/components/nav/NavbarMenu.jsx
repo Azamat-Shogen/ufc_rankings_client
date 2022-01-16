@@ -7,7 +7,7 @@ import {  } from 'reactstrap';
 const NavbarMenu = () => {
 
     return (
-        <nav className="navbar navbar-expand-md bg-dark navbar-dark p-3">
+        <nav className="navbar navbar-expand-md bg-dark navbar-dark p-3" style={{zIndex: "1"}}>
             <div className="col-lg-4">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span className="navbar-toggler-icon"></span>
