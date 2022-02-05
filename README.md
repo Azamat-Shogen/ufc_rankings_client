@@ -2,10 +2,10 @@
 
 ### This project is built using React
 ##### (UFC rankings clone, that connects to a remote server built in Django)
-UFC rankings server:  https://github.com/Azamat-Shogen/django_ufc_rankings
+See UFC rankings server [here](https://github.com/Azamat-Shogen/django_ufc_rankings)
 
 
-#### Live Demo: 🚀  https://ufc-rankings.netlify.app/
+#### [Live Demo: 🚀](https://ufc-rankings.netlify.app/)
 
 
    work in progress...
