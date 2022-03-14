@@ -7,8 +7,9 @@ See UFC rankings server [here](https://github.com/Azamat-Shogen/django_ufc_ranki
 
 #### [Live Demo: 🚀](https://ufc-rankings.netlify.app/)
 
+![gewgwegwegweg](https://user-images.githubusercontent.com/68517175/158101982-a056d6f9-a674-4fd7-9f1f-96b3a18a265d.png)
 
-   work in progress...
+   
 
 ## Available Scripts
 
