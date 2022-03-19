@@ -87,12 +87,12 @@ const Athletes = (props) => {
            </div>
             
             <div>
-            {
+            { rows.length > 0 && (
                 rows.map((row, i) => <Row md="4" sm="2" xs="1" className="mt-4 mb-4" key={i}>
                     {
                         row.map( el => <AthleteCard key={el.id} athlete={el} />)
                     }
-                </Row>)
+                </Row>))
             }
             </div>
         </>

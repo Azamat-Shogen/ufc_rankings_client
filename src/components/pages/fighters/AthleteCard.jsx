@@ -8,6 +8,8 @@ const AthleteCard = ({athlete}) => {
 
     const valid_image = athlete.image_src.slice(0, 4) === "http";
     const profile_img = valid_image ? athlete.image_src : default_image_src
+
+    console.log("ahtele: ", athlete)
    
     return (
         <div>
