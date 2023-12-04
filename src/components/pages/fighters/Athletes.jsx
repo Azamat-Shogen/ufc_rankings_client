@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from "react";
-import {fetchAthletesData, fetchMenData, fetchWomenData} from "../../../api/requests";
+import {fetchAthletesData, getWeightClassesData, fetchMenData, fetchWomenData, // needed for deplyoed server 
+    getAthletesData,
+    getMenData,
+    getWomenData
+} from "../../../api/requests";
 import {Row, Spinner, PaginationItem, PaginationLink, Pagination, Nav} from 'reactstrap';
 import {createRows2} from "../../../utils";
 import AthleteCard from "./AthleteCard";
@@ -9,13 +13,11 @@ import pageContainer from "../../../pageContainer";
 
 
 const pageNumbners = [1, 2, 3]
-const dataToLoad = [{fightes:"ALL", selected: true}, {fightes:"MEN", selected: false}, {fightes:"WOMEN", selected: false}]
+const dataToLoad = [{fighters:"ALL", selected: true}, {fighters:"MEN", selected: false}, {fighters:"WOMEN", selected: false}]
 
-const Athletes = (props) => {
+const Athletes = () => {
 
    // const path = props.router.location.pathname
-    
-
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [rows, setRows] = useState([])
@@ -23,14 +25,16 @@ const Athletes = (props) => {
 
 
     useEffect( () => {
+
         setLoading(true);
         let data;
-        const selectedData = filteredData.find(el => el.selected === true).fightes
+        const selectedData = filteredData.find(el => el.selected === true).fighters
 
         console.log(selectedData)
-        if(selectedData === "ALL") data = fetchAthletesData(page)
-        else if(selectedData === "MEN") data = fetchMenData(page)
-        else data = fetchWomenData(page)
+        if(selectedData === "ALL") data = getAthletesData(page)
+
+        else if(selectedData === "MEN") data = getMenData(page)
+        else data = getWomenData(page)
 
         data.then( el => {
             setLoading(false);
@@ -46,7 +50,7 @@ const Athletes = (props) => {
     const toggleFilter = (filterByData) => {
       const temp = [...filteredData]
       temp.map(el => {
-          if(el.fightes === filterByData){console.log("found"); el.selected = true}
+          if(el.fighters === filterByData){console.log("found"); el.selected = true}
           else { el.selected = false}
           return el
       })
@@ -87,12 +91,12 @@ const Athletes = (props) => {
            </div>
             
             <div>
-            {
+            { rows.length > 0 && (
                 rows.map((row, i) => <Row md="4" sm="2" xs="1" className="mt-4 mb-4" key={i}>
                     {
                         row.map( el => <AthleteCard key={el.id} athlete={el} />)
                     }
-                </Row>)
+                </Row>))
             }
             </div>
         </>
