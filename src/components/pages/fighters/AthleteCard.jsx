@@ -6,8 +6,8 @@ const default_image_src = "https://www.ufc.com/themes/custom/ufc/assets/img/no-p
 
 const AthleteCard = ({athlete}) => {
 
-    const valid_image = athlete.image_src.slice(0, 4) === "http";
-    const profile_img = valid_image ? athlete.image_src : default_image_src
+    const valid_image = athlete.img_src.slice(0, 4) === "http";
+    const profile_img = valid_image ? athlete.img_src : default_image_src
 
    
    

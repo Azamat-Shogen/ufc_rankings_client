@@ -6,7 +6,7 @@ import AthleteCollapseCard from "../rankings_athlete_collapse/AthleteCollapseCar
 const WeightClassColumn = ({data}) => {
 
    const [collapse, setCollapse] = useState(0)
-   
+
    const toggle = (e) => {
        const event = e.target.dataset.event;
     setCollapse(collapse === Number(event) ? 0: Number(event))
